@@ -4,8 +4,6 @@ import os
 old_path = os.path.join(os.getcwd(), 'images')
 new_path = os.path.join('opt', 'icons')
 
-print(new_path)
-
 for image in os.listdir(old_path):
     try:
         img = Image.open(os.path.join(old_path, image))
