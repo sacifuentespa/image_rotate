@@ -4,8 +4,12 @@ import os
 old_path = os.path.join(os.getcwd(), 'images')
 new_path = os.path.join('opt', 'icons')
 
+print(new_path)
+
 for image in os.listdir(old_path):
-	if '.' not in image[0]:
-		img = Image.open(os.path.join(old_path, image))
-		img.rotate(-90).resize((128, 128)).convert("RGB").save(new_path + image.split('.')[0], 'jpeg')
-		img.close()
+    try:
+        img = Image.open(os.path.join(old_path, image))
+        img.rotate(-90).resize((128, 128)).convert("RGB").save(os.path.join(new_path,image), 'jpeg')
+        img.close()
+    except:
+        continue
